@@ -36,7 +36,7 @@ class AnimatorFactory {
     }
     return scale
   }
-
+  
   @discardableResult
   static func jiggle(view: UIView) -> UIViewPropertyAnimator {
     return UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.33, delay: 0, animations: {
@@ -55,12 +55,24 @@ class AnimatorFactory {
       view.transform = .identity
     })
   }
-
+  
   @discardableResult
   static func fade(view: UIView, visible: Bool) -> UIViewPropertyAnimator {
     return UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0.1, options: .curveEaseOut, animations: {
       view.alpha = visible ? 1 : 0
     }, completion: nil)
   }
-
+  
+  @discardableResult
+  static func animateConstraint(view: UIView, constraint: NSLayoutConstraint, by: CGFloat) -> UIViewPropertyAnimator {
+    let spring = UISpringTimingParameters(dampingRatio: 0.2)
+    let animator = UIViewPropertyAnimator(duration: 2.0, timingParameters: spring)
+    
+    animator.addAnimations {
+      constraint.constant += by
+      view.layoutIfNeeded()
+    }
+    
+    return animator
+  }
 }

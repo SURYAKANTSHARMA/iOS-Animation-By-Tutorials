@@ -41,13 +41,40 @@ class WidgetCell: UITableViewCell {
   }
   
   @IBAction func toggleShowMore(_ sender: UIButton) {
-
     self.showsMore = !self.showsMore
-
-    self.widgetHeight.constant = self.showsMore ? 230 : 130
-    self.tableView?.reloadData()
-
+    
+    let animations = {
+      self.widgetHeight.constant = self.showsMore ? 230 : 130
+      if let tableView = self.tableView {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        tableView.layoutIfNeeded()
+      }
+    }
+    
+    let textTransition = {
+      UIView.transition(with: sender, duration: 0.25, options: .transitionCrossDissolve, animations: {
+        sender.setTitle(self.showsMore ? "Show Less" : "Show More", for: .normal)
+      }, completion: nil)
+    }
+    
+    let spring = UISpringTimingParameters(mass: 30, stiffness: 1000, damping: 300, initialVelocity: CGVector(dx: 3, dy: 0))
+    
+    if let toggleHeightAnimator = toggleHeightAnimator, toggleHeightAnimator.isRunning {
+      toggleHeightAnimator.stopAnimation(true)
+      toggleHeightAnimator.addAnimations(animations)
+      toggleHeightAnimator.addAnimations(textTransition, delayFactor: 0.5)
+      toggleHeightAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 1.0)
+    } else {
+      toggleHeightAnimator = UIViewPropertyAnimator(duration: 0.0, timingParameters: spring)
+      toggleHeightAnimator?.addAnimations(animations)
+      toggleHeightAnimator?.addAnimations(textTransition, delayFactor: 0.5)
+    }
+    
+    toggleHeightAnimator?.startAnimation()
+    
     widgetView.expanded = showsMore
     widgetView.reload()
   }
+  
 }
