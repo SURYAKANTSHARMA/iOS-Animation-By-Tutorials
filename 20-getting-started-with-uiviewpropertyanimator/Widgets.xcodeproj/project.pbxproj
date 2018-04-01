@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57E626512070A2E000A2D7CA /* AnimatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E626502070A2E000A2D7CA /* AnimatorFactory.swift */; };
 		9C125E081DAEEFBF00E352C1 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C125E071DAEEFBF00E352C1 /* IconCell.swift */; };
 		9C5513E41DB2619E0085E8A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C5513E31DB2619E0085E8A7 /* Assets.xcassets */; };
 		9C7446771DB2995E0075364A /* WidgetsOwnerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7446761DB2995E0075364A /* WidgetsOwnerProtocol.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57E626502070A2E000A2D7CA /* AnimatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorFactory.swift; sourceTree = "<group>"; };
 		9C125E071DAEEFBF00E352C1 /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		9C5513E31DB2619E0085E8A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C7446761DB2995E0075364A /* WidgetsOwnerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetsOwnerProtocol.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57E6264F2070A2CB00A2D7CA /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				57E626502070A2E000A2D7CA /* AnimatorFactory.swift */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
 		9C3A2E331DAFBDBC00384C68 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 		9C9E23F41DAD251B004749FD /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				57E6264F2070A2CB00A2D7CA /* Animation */,
 				9C3A2E331DAFBDBC00384C68 /* Assets */,
 				9CF8DFCB1DAFBD8100060AC5 /* Lock Screen View Controller */,
 				9C3A2E351DAFBDEC00384C68 /* Settings View Controller */,
@@ -194,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CF4C0F11DAE5D0900F4E30A /* SettingsViewController.swift in Sources */,
+				57E626512070A2E000A2D7CA /* AnimatorFactory.swift in Sources */,
 				9C7446771DB2995E0075364A /* WidgetsOwnerProtocol.swift in Sources */,
 				9CF4C0F51DAE912000F4E30A /* FooterCell.swift in Sources */,
 				9C125E081DAEEFBF00E352C1 /* IconCell.swift in Sources */,
